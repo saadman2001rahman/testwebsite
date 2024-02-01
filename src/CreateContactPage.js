@@ -24,6 +24,17 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
         if (contact.firstName.trim() === '') {
             errors.firstName = "First Name cannot be empty";
         }
+        if (contact.firstName.length < 3) {
+            errors.firstName = "First Name too short";
+        }
+        if (contact.firstName.length > 25) {
+            errors.firstName = "First Name too long";
+        }
+
+        if (contact.lastName.trim() !== '' && (contact.lastName.length < 2 || contact.lastName.length > 30)) {
+            errors.lastName = "Last name has to be between 2 and 30 characters";
+        }
+
 
         return errors;
     };
@@ -61,7 +72,7 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     style={{ border: errors.email ? "1px solid red" : null }}
                 />
                 {errors.email ? (
-                    <p className="error">Email should not be empty</p>
+                    <p className="error">{errors.email}</p>
                 ) : null}
 
                 <label>First Name:</label>
@@ -73,7 +84,7 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     style={{ borderColor: errors.firstName ? 'red' : '' }}
                 />
                 {errors.firstName ? (
-                    <p className="error">First Name should not be empty</p>
+                    <p className="error">{errors.firstName}</p>
                 ) : null}
 
                 <label>Last Name (Optional):</label>
@@ -82,9 +93,11 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     name="lastName"
                     value={contact.lastName}
                     onChange={handleInputChange}
-                    minLength={2}
-                    maxLength={30}
+                    style={{ borderColor: errors.lastName ? 'red' : '' }}
                 />
+                {errors.lastName ? (
+                    <p className="error">{errors.lastName}</p>
+                ) : null}
 
                 <button type="button" onClick={handleSubmit}>
                     Create Contact
