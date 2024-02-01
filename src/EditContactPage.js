@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './CreateContactPage.css';
+
 
 const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
     const [editedContact, setEditedContact] = useState({
@@ -57,16 +59,16 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
         }
     }, [errors]);
 
-
     return (
-        <div>
+        <div className="create-contact-page">
             <h2>Edit Contact</h2>
-            <form>
+            <form className="contact-form">
                 <label>Email:</label>
                 <p>{editedContact.email}</p>
 
                 <label>First Name:</label>
                 <input
+                    className="form-input"
                     type="text"
                     name="firstName"
                     value={editedContact.firstName}
@@ -79,6 +81,7 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
 
                 <label>Last Name (Optional):</label>
                 <input
+                    className="form-input"
                     type="text"
                     name="lastName"
                     value={editedContact.lastName}
@@ -89,10 +92,11 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
                     <p className="error">{errors.lastName}</p>
                 ) : null}
 
-                <button type="button" onClick={handleSubmit}>
+
+                <button className="submit-btn" type="button" onClick={handleSubmit}>
                     Save Changes
                 </button>
-                <button type="button" onClick={onCancelClick}>
+                <button className="cancel-btn" type="button" onClick={onCancelClick}>
                     Cancel
                 </button>
             </form>

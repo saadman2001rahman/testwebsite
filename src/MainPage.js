@@ -1,19 +1,20 @@
 import React from 'react';
+import './MainPage.css';
 
 const MainPage = ({ contactsList, onCreateClick, onRemoveClick, onEditClick }) => {
     return (
-        <div>
+        <div className="main-page">
             <h2>Contact List</h2>
-            <ul>
+            <ul className="contact-list">
                 {contactsList.map((contact, index) => (
-                    <li key={index}>
-                        {contact.firstName} {contact.lastName} - {contact.email}{' '}
-                        <button onClick={() => onEditClick(index)}>Edit</button>
-                        <button onClick={() => onRemoveClick(index)}>Remove</button>
+                    <li key={index} className="contact-item">
+                        <span>{contact.firstName} {contact.lastName} - {contact.email}</span>
+                        <button className="edit-btn" onClick={() => onEditClick(index)}>Edit</button>
+                        <button className="remove-btn" onClick={() => onRemoveClick(index)}>Remove</button>
                     </li>
                 ))}
             </ul>
-            <button onClick={onCreateClick}>Create Contact</button>
+            <button className="create-btn" onClick={onCreateClick}>Create Contact</button>
         </div>
     );
 };

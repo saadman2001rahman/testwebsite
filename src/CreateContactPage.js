@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './CreateContactPage.css';
 
 const CreateContactPage = ({ onAddContact, onCancelClick }) => {
     const [contact, setContact] = useState({
@@ -55,28 +56,29 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
         }
     }, [errors]);
 
-
     return (
-        <div>
+        <div className="create-contact-page">
             {Object.keys(errors).length === 0 && submitting ? (
                 <span className="success">Successfully submitted ✓</span>
             ) : null}
             <h2>Create Contact</h2>
-            <form>
+            <form className="contact-form">
                 <label>Email:</label>
                 <input
+                    className="form-input"
                     type="email"
                     name="email"
                     value={contact.email}
                     onChange={handleInputChange}
-                    style={{ border: errors.email ? "1px solid red" : null }}
+                    style={{ borderColor: errors.email ? 'red' : '' }}
                 />
                 {errors.email ? (
-                    <p className="error">{errors.email}</p>
+                    <p className="error">Email should not be empty</p>
                 ) : null}
 
                 <label>First Name:</label>
                 <input
+                    className="form-input"
                     type="text"
                     name="firstName"
                     value={contact.firstName}
@@ -84,25 +86,24 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     style={{ borderColor: errors.firstName ? 'red' : '' }}
                 />
                 {errors.firstName ? (
-                    <p className="error">{errors.firstName}</p>
+                    <p className="error">First Name should not be empty</p>
                 ) : null}
 
                 <label>Last Name (Optional):</label>
                 <input
+                    className="form-input"
                     type="text"
                     name="lastName"
                     value={contact.lastName}
                     onChange={handleInputChange}
-                    style={{ borderColor: errors.lastName ? 'red' : '' }}
+                    minLength={2}
+                    maxLength={30}
                 />
-                {errors.lastName ? (
-                    <p className="error">{errors.lastName}</p>
-                ) : null}
 
-                <button type="button" onClick={handleSubmit}>
+                <button className="submit-btn" type="button" onClick={handleSubmit}>
                     Create Contact
                 </button>
-                <button type="button" onClick={onCancelClick}>
+                <button className="cancel-btn" type="button" onClick={onCancelClick}>
                     Cancel
                 </button>
             </form>
