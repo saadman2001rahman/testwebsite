@@ -1,12 +1,16 @@
-// Import necessary dependencies and components from React
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainPage from './MainPage';
 import CreateContactPage from './CreateContactPage';
 import EditContactPage from './EditContactPage';
 
 const App = () => {
+  // Initialize contactsList state with localStorage or an empty array
+  const [contactsList, setContactsList] = useState(() => {
+    const storedContacts = localStorage.getItem('contactsList');
+    return storedContacts ? JSON.parse(storedContacts) : [];
+  });
+
   const [page, setPage] = useState('main');
-  const [contactsList, setContactsList] = useState([]);
   const [selectedContactIndex, setSelectedContactIndex] = useState(null);
 
   const addContact = (newContact) => {
@@ -33,8 +37,13 @@ const App = () => {
     setSelectedContactIndex(null);
   };
 
+  // Update localStorage whenever contactsList changes
+  useEffect(() => {
+    localStorage.setItem('contactsList', JSON.stringify(contactsList));
+  }, [contactsList]);
+
   return (
-    <div>
+    <div className="app-page">
       {page === 'main' && (
         <MainPage
           contactsList={contactsList}
@@ -44,7 +53,7 @@ const App = () => {
         />
       )}
       {page === 'create' && (
-        <CreateContactPage onAddContact={addContact} onCancelClick={() => setPage('main')} />
+        <CreateContactPage contactsList={contactsList} onAddContact={addContact} onCancelClick={() => setPage('main')} />
       )}
       {page === 'edit' && (
         <EditContactPage

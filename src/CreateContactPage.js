@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './CreateContactPage.css';
 
-const CreateContactPage = ({ onAddContact, onCancelClick }) => {
+const CreateContactPage = ({ contactsList, onAddContact, onCancelClick }) => {
     const [contact, setContact] = useState({
         email: '',
         firstName: '',
@@ -16,11 +16,18 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
         setContact({ ...contact, [name]: value });
     };
 
+    const isEmailUnique = (email) => {
+        return !contactsList.some((existingContact) => existingContact.email === email);
+    };
+
+
 
     const validateValues = (contact) => {
         let errors = {};
         if (contact.email.trim() === '') {
             errors.email = "Email cannot be empty";
+        } else if (!isEmailUnique(contact.email)) {
+            errors.email = "Email must be unique";
         }
         if (contact.firstName.trim() === '') {
             errors.firstName = "First Name cannot be empty";
@@ -73,7 +80,7 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     style={{ borderColor: errors.email ? 'red' : '' }}
                 />
                 {errors.email ? (
-                    <p className="error">Email should not be empty</p>
+                    <p className="error">{errors.email}</p>
                 ) : null}
 
                 <label>First Name:</label>
@@ -86,7 +93,7 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     style={{ borderColor: errors.firstName ? 'red' : '' }}
                 />
                 {errors.firstName ? (
-                    <p className="error">First Name should not be empty</p>
+                    <p className="error">{errors.firstName}</p>
                 ) : null}
 
                 <label>Last Name (Optional):</label>
@@ -99,6 +106,10 @@ const CreateContactPage = ({ onAddContact, onCancelClick }) => {
                     minLength={2}
                     maxLength={30}
                 />
+                {errors.lastName ? (
+                    <p className="error">{errors.lastName}</p>
+                ) : null}
+
 
                 <button className="submit-btn" type="button" onClick={handleSubmit}>
                     Create Contact

@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainPage.css';
 
+
 const MainPage = ({ contactsList, onCreateClick, onRemoveClick, onEditClick }) => {
     return (
         <div className="main-page">
