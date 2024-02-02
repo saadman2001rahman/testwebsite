@@ -1,3 +1,16 @@
+This is a test website that takes and stores contacts from a user. In this website, a user can create a new contact (email, first and last name), and store them in the local storage of their browser. A user can also edit an existing contact (only first and last name), and remove a contact.
+
+For the inputs:
+Email: has to be unique and not null
+
+First name: has to be not null and is between 3 and 25 characters
+
+Last name: is optional, but must be between 2 and 30 characters if present.
+
+In order to view/run the project, please clone the repo into a directory, cd into the project, then run `npm start` in the terminal.
+
+This project does not use any extra packages/libraries.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
