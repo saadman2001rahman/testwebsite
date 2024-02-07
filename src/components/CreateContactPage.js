@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CreateContactPage.css';
+import '../styles/CreateContactPage.css';
 
 const CreateContactPage = ({ contactsList, onAddContact, onCancelClick }) => {
     const [contact, setContact] = useState({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import MainPage from './MainPage';
-import CreateContactPage from './CreateContactPage';
-import EditContactPage from './EditContactPage';
+import MainPage from './components/MainPage';
+import CreateContactPage from './components/CreateContactPage';
+import EditContactPage from './components/EditContactPage';
 
 const App = () => {
   // Initialize contactsList state with localStorage or an empty array

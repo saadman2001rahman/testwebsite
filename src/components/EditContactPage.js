@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CreateContactPage.css';
+import '../styles/CreateContactPage.css';
 
 
 const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {

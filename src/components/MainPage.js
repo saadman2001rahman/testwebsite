@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainPage.css';
+import '../styles/MainPage.css';
 
 
 const MainPage = ({ contactsList, onCreateClick, onRemoveClick, onEditClick }) => {
