@@ -1,8 +1,8 @@
 # Project Feedback
 
 ## Quality of life
-* Organize src folder
-  * Group like functionality e.g. pages and components
+* Organize src folder 
+  * Group like functionality e.g. pages and components (made style and component folders)
 * Align spacing across files (2 space tabs)
 
 ## Clean code
