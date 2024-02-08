@@ -31,6 +31,7 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
         console.log(contact);
         onUpdateContact(editedContact);
     };
+
     useEffect(() => {
         if (Object.keys(errors).length === 0 && submitting) {
             finishSubmit();
