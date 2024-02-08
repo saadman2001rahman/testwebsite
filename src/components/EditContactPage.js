@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/CreateContactPage.css';
 
+import { validateValues } from "../utils/validate.js";
+
 
 const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
     const [editedContact, setEditedContact] = useState({
@@ -19,33 +21,9 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
         setEditedContact({ ...editedContact, [name]: value });
     };
 
-    const validateValues = (editedContact) => {
-        let errors = {};
-        // if (editedContact.email.trim() === '') {
-        //     errors.email = "Email cannot be empty";
-        // }
-        if (editedContact.firstName.trim() === '') {
-            errors.firstName = "First Name cannot be empty";
-        }
-        if (editedContact.firstName.length < 3) {
-            errors.firstName = "First Name too short";
-        }
-        if (editedContact.firstName.length > 25) {
-            errors.firstName = "First Name too long";
-        }
-
-        if (editedContact.lastName.trim() !== '' && (editedContact.lastName.length < 2 || editedContact.lastName.length > 30)) {
-            errors.lastName = "Last name has to be between 2 and 30 characters";
-        }
-
-
-        return errors;
-    };
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        setErrors(validateValues(editedContact));
+        setErrors(validateValues(editedContact, []));
         setSubmitting(true);
     };
 
