@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import MainPage from './components/MainPage';
-import CreateContactPage from './components/CreateContactPage';
-import EditContactPage from './components/EditContactPage';
+import React, { useState, useEffect } from "react";
+import MainPage from "./components/MainPage";
+import CreateContactPage from "./components/CreateContactPage";
+import EditContactPage from "./components/EditContactPage";
 
 const App = () => {
   // Initialize contactsList state with localStorage or an empty array
   const [contactsList, setContactsList] = useState(() => {
-    const storedContacts = localStorage.getItem('contactsList');
+    const storedContacts = localStorage.getItem("contactsList");
     return storedContacts ? JSON.parse(storedContacts) : [];
   });
 
-  const [page, setPage] = useState('main');
+  const [page, setPage] = useState("main");
   const [selectedContactIndex, setSelectedContactIndex] = useState(null);
 
   const addContact = (newContact) => {
     setContactsList([...contactsList, newContact]);
-    setPage('main');
+    setPage("main");
   };
 
   const removeContact = (index) => {
@@ -26,40 +26,44 @@ const App = () => {
 
   const editContact = (index) => {
     setSelectedContactIndex(index);
-    setPage('edit');
+    setPage("edit");
   };
 
   const updateContact = (editedContact) => {
     const updatedList = [...contactsList];
     updatedList[selectedContactIndex] = editedContact;
     setContactsList(updatedList);
-    setPage('main');
+    setPage("main");
     setSelectedContactIndex(null);
   };
 
   // Update localStorage whenever contactsList changes
   useEffect(() => {
-    localStorage.setItem('contactsList', JSON.stringify(contactsList));
+    localStorage.setItem("contactsList", JSON.stringify(contactsList));
   }, [contactsList]);
 
   return (
     <div className="app-page">
-      {page === 'main' && (
+      {page === "main" && (
         <MainPage
           contactsList={contactsList}
-          onCreateClick={() => setPage('create')}
+          onCreateClick={() => setPage("create")}
           onRemoveClick={removeContact}
           onEditClick={editContact}
         />
       )}
-      {page === 'create' && (
-        <CreateContactPage contactsList={contactsList} onAddContact={addContact} onCancelClick={() => setPage('main')} />
+      {page === "create" && (
+        <CreateContactPage
+          contactsList={contactsList}
+          onAddContact={addContact}
+          onCancelClick={() => setPage("main")}
+        />
       )}
-      {page === 'edit' && (
+      {page === "edit" && (
         <EditContactPage
           contact={contactsList[selectedContactIndex]}
           onUpdateContact={updateContact}
-          onCancelClick={() => setPage('main')}
+          onCancelClick={() => setPage("main")}
         />
       )}
     </div>
