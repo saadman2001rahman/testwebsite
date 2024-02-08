@@ -41,12 +41,13 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
     return (
         <div className="create-contact-page">
             <h2>Edit Contact</h2>
-            <form className="contact-form">
-                <label>Email:</label>
+            <form className="contact-form" onSubmit={handleSubmit}>
+                <label htmlFor="email">Email:</label>
                 <p>{editedContact.email}</p>
 
-                <label>First Name:</label>
+                <label htmlFor="firstName">First Name:</label>
                 <input
+                    id="firstName"
                     className="form-input"
                     type="text"
                     name="firstName"
@@ -58,8 +59,9 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
                     <p className="error">{errors.firstName}</p>
                 ) : null}
 
-                <label>Last Name (Optional):</label>
+                <label htmlFor="lastName">Last Name (Optional):</label>
                 <input
+                    id="lastName"
                     className="form-input"
                     type="text"
                     name="lastName"
@@ -71,8 +73,7 @@ const EditContactPage = ({ contact, onUpdateContact, onCancelClick }) => {
                     <p className="error">{errors.lastName}</p>
                 ) : null}
 
-
-                <button className="submit-btn" type="button" onClick={handleSubmit}>
+                <button className="submit-btn" type="submit">
                     Save Changes
                 </button>
                 <button className="cancel-btn" type="button" onClick={onCancelClick}>

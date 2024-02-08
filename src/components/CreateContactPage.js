@@ -40,9 +40,10 @@ const CreateContactPage = ({ contactsList, onAddContact, onCancelClick }) => {
                 <span className="success">Successfully submitted ✓</span>
             ) : null}
             <h2>Create Contact</h2>
-            <form className="contact-form">
-                <label>Email:</label>
+            <form className="contact-form" onSubmit={handleSubmit}>
+                <label htmlFor="email">Email:</label>
                 <input
+                    id="email"
                     className="form-input"
                     type="email"
                     name="email"
@@ -54,8 +55,9 @@ const CreateContactPage = ({ contactsList, onAddContact, onCancelClick }) => {
                     <p className="error">{errors.email}</p>
                 ) : null}
 
-                <label>First Name:</label>
+                <label htmlFor="firstName">First Name:</label>
                 <input
+                    id="firstName"
                     className="form-input"
                     type="text"
                     name="firstName"
@@ -67,8 +69,9 @@ const CreateContactPage = ({ contactsList, onAddContact, onCancelClick }) => {
                     <p className="error">{errors.firstName}</p>
                 ) : null}
 
-                <label>Last Name (Optional):</label>
+                <label htmlFor="lastName">Last Name (Optional):</label>
                 <input
+                    id="lastName"
                     className="form-input"
                     type="text"
                     name="lastName"
@@ -81,9 +84,8 @@ const CreateContactPage = ({ contactsList, onAddContact, onCancelClick }) => {
                     <p className="error">{errors.lastName}</p>
                 ) : null}
 
-
-                <button className="submit-btn" type="button" onClick={handleSubmit}>
-                    Create Contact
+                <button className="submit-btn" type="submit">
+                    Create
                 </button>
                 <button className="cancel-btn" type="button" onClick={onCancelClick}>
                     Cancel
