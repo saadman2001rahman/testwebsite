@@ -1,83 +1,57 @@
-This is a test website that takes and stores contacts from a user. In this website, a user can create a new contact (email, first and last name), and store them in the local storage of their browser. A user can also edit an existing contact (only first and last name), and remove a contact.
 
-For the inputs:
-Email: has to be unique and not null
+## Contacts Management React Website
 
-First name: has to be not null and is between 3 and 25 characters
+Welcome to the Contacts Management React Website! This application allows users to seamlessly manage their contacts by creating, editing, and removing entries with ease. Below, you'll find essential information about the functionalities, input requirements, and how to run the project and its tests.
 
-Last name: is optional, but must be between 2 and 30 characters if present.
 
-In order to view/run the project, please clone the repo into a directory, cd into the project, then run `npm start` in the terminal.
 
-This project does not use any extra packages/libraries.
+## Features
 
-# Getting Started with Create React App
+Create a New Contact
+Users can add a new contact by providing a unique email, a first name (between 3 and 25 characters), and an optional last name (between 2 and 30 characters if provided). The contact details are then stored in the local storage of the user's browser.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Edit an Existing Contact
+Users have the option to edit the first and last name of an existing contact, tailoring the information to their needs.
 
-## Available Scripts
+Remove a Contact
+Unnecessary contacts can be easily removed, streamlining the user's contact list.
 
-In the project directory, you can run:
+Input Requirements
+Email: Must be unique and not null.
 
-### `npm start`
+First Name: Must not be null and should be between 3 and 25 characters.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Last Name: Optional, but if provided, must be between 2 and 30 characters.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Running the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To view and run the project, follow these steps:
 
-### `npm run build`
+Clone the repository into a directory of your choice.
+Navigate to the project directory using the terminal with `cd your-directory-name`.
+Run `npm start` to start the development server.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running Tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project utilizes Jest for testing. To run the tests, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository into a directory of your choice.
+Navigate to the project directory using the terminal with cd your-directory-name.
+Run `npm test` to execute the test suite.
 
-### `npm run eject`
+## Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project relies on the following testing libraries:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+jest-dom: JavaScript testing utility for DOM assertions.
+testing-library/react: Testing utilities for React applications.
+Thank you for exploring the Contacts Management React Website! Feel free to reach out if you have any questions or feedback.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In order to install the necessary Dependencies for testing, please install them using the following command:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`npm install --save-dev @testing-library/react @testing-library/jest-dom`
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
